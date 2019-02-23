@@ -1,1 +1,1 @@
-web: java -sh target
+web: java -sh target/Astronaut.war
