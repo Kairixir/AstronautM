@@ -44,6 +44,7 @@ public class AstronautController {
     @PostMapping("/addAstronaut")
     public String addAstronaut(@Valid @ModelAttribute("astronaut") Astronaut theAstronaut, BindingResult bindingResult){
 
+        //checks if the validation from form has any errors
         if (bindingResult.hasErrors()) {
             return "astronaut-form";
         }
