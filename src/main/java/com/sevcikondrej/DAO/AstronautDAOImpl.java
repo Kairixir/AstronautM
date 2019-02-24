@@ -74,13 +74,13 @@ public class AstronautDAOImpl implements AstronautDAO {
         //query list of astronauts using name
         if (theSearchName!= null && theSearchName.trim().length()>0){
             theQuery = currentSession.createQuery("from Astronaut where lower(firstName) LIKE :searchName " +
-                    "OR lower(lastName) LIKE :searchName", Astronaut.class );
+                    "OR lower(lastName) LIKE :searchName order by lastName", Astronaut.class );
 
         theQuery.setParameter("searchName","%"+theSearchName.toLowerCase()+"%");
         }
         else{
             //the search name is empty so just get all the astronauts
-            theQuery = currentSession.createQuery("from Astronaut", Astronaut.class);
+            theQuery = currentSession.createQuery("from Astronaut order by lastName", Astronaut.class);
         }
         //get list of astronauts LIKE name
         List<Astronaut> astronauts = theQuery.getResultList();

@@ -37,16 +37,20 @@
     <div id="container">
         <div id="content">
             <%--put new button: Add Astronaut--%>
-
-            <input type="button" value="Přidat astronauta"
-                   onclick="window.location.href='showFormForAdd'; return false;"
-                class="add-button"
-            /><br>
+            <div class="buttons">
+                <div class = "add-button-left">
+                    <input type="button" value="Přidat astronauta"
+                     onclick="window.location.href='showFormForAdd'; return false;"
+                    class="add-button"
+                    />
+                </div>
+                <div class="search-button-right">
                 <form:form action="search" method="get">
                     Hledej astronauta: <input type="text" name="theSearchName"/>
                     <input type="submit" value="Hledat" class="add-button"/>
                 </form:form>
-
+                </div>
+            </div>
                 <table>
                     <thead>
                     <tr>
@@ -81,7 +85,7 @@
                                 <a href="${deleteLink}" onclick="if (!( confirm('Opravdu chcete vymazat ${tempAstronaut.firstName} ${tempAstronaut.lastName}?')))return false">Vymazat</a>
 
                             </td>
-                            <td></td>
+
                         </tr>
 
                     </c:forEach>
